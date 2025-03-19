@@ -14,10 +14,12 @@ public class MyApplication {
 		SpringApplication app = new
 				SpringApplication(MyApplication.class);
 		Environment env = app.run(args).getEnvironment();
-		log.info("Access URLs:\n------------------------------------------------------ ----\n" +
-		"Url Swagger:\thttp://127.0.0.1:{}/swagger-ui/index.html\n" +
-		"Url H2 Base:\thttp://127.0.0.1:{}/h2-console\n" +
-		"----------------------------------------------------------",
+		log.info("""
+                        Access URLs:
+                        ------------------------------------------------------ ----
+                        Url Swagger:\thttp://127.0.0.1:{}/swagger-ui/index.html
+                        Url H2 Base:\thttp://127.0.0.1:{}/h2-console
+                        ----------------------------------------------------------""",
 				env.getProperty("server.port"),
 				env.getProperty("server.port"));
 	}

@@ -4,6 +4,7 @@ package com.pfe.AllTheTps.services;
 import com.pfe.AllTheTps.DTOs.UserDto;
 import com.pfe.AllTheTps.Mappers.UserMapper;
 import com.pfe.AllTheTps.repositories.UserRepository;
+import org.springframework.orm.ObjectOptimisticLockingFailureException;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -19,8 +20,9 @@ public class UserServiceImpl implements IUserService {
     }
     @Override
     public UserDto addUser(UserDto userDto) {
-        return
-                userMapper.toDto(userRepository.save(userMapper.toEntity(userDto)));
+
+           return userMapper.toDto(userRepository.save(userMapper.toEntity(userDto)));
+
     }
     @Override
     public UserDto updateUser(UserDto userDto) {
@@ -34,7 +36,6 @@ public class UserServiceImpl implements IUserService {
     @Override
     public List<UserDto> selectUsers() {
         return
-                userRepository.findAll().stream().map(userEntity ->
-                        userMapper.toDto(userEntity)).collect(Collectors.toList());
+                userRepository.findAll().stream().map(userMapper::toDto).collect(Collectors.toList());
     }
 }

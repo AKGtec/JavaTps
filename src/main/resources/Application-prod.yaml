@@ -1,0 +1,36 @@
+server:
+  port: 9050
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:file:~/pfe6
+    serverName: localhost
+    username: sa
+    password: password
+  jpa:
+    show_sql: true
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+
+springfox:
+  documentation:
+    swagger-ui:
+      enabled: true
+
+springdoc:
+  api-docs: {}
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
+
+logging:
+  level:
+    root: INFO
+    com.pfe.AllTheTps: INFO
+    org.springframework: INFO

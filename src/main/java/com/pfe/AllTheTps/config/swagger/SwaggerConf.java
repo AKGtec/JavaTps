@@ -25,7 +25,7 @@ public class SwaggerConf {
     public GroupedOpenApi publicApi() {
         return GroupedOpenApi.builder()
                 .group("public")
-                .packagesToScan("com.pfe") // Adjust this to your package
+                .packagesToScan("com.pfe.AllTheTps") // Adjust this to your package
                 .build();
     }
 }
