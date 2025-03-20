@@ -17,16 +17,16 @@ import jakarta.validation.constraints.NotNull;
 public class UserDto {
 
 
-    @NotNull(message = "Name cannot be null")
+    @NotNull(message = " DTO Name cannot be null")
     @Size(min = 2, max = 30, message = "Name must be between 2 and 30 characters")
     private String name;
 
-    @NotNull(message = "Address cannot be null")
-    @Size(max = 255, message = "Address can be a maximum of 255 characters")
+    @NotNull(message = " DTO Address cannot be null")
+    @Size(max = 255, message = " DTO Address can be a maximum of 255 characters")
     private String address;
 
-    @NotNull(message = "Email cannot be null")
-    @Email(message = "Email should be valid")
+    @NotNull(message = " DTO Email cannot be null")
+    @Email(message = " DTO Email should be valid")
     private String email;
 
     @Password

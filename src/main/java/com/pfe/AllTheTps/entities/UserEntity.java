@@ -6,15 +6,19 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Size;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import jakarta.validation.constraints.NotNull;
+
+import java.util.Set;
 
 @Entity
 @Table(name = "T_USERS")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,5 +34,9 @@ public class UserEntity {
     @Column(unique = true, nullable = false)
     private String email;
     private String password;
+    @ManyToMany(fetch = FetchType.EAGER, cascade =
+            {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH,
+                    CascadeType.DETACH})
+    private Set<RoleEntity> roles;
 }
 

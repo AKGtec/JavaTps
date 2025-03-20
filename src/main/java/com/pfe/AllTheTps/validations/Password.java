@@ -8,7 +8,7 @@ import java.lang.annotation.RetentionPolicy;
 @Constraint(validatedBy = PasswordValidator.class)
 public @interface Password {
     String message() default
-            "{jakarta.validation.constraints.NotValid.password}";
+            "{NotValid.password}";
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};
 }
